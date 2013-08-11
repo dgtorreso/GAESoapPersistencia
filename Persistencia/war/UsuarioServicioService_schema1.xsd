@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://usuarios.servicios.persistencia.dv.com/" xmlns:tns="http://usuarios.servicios.persistencia.dv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="crearUsuario" type="tns:crearUsuario"/>
+
+  <xs:element name="crearUsuarioResponse" type="tns:crearUsuarioResponse"/>
+
+  <xs:element name="eliminarUsuario" type="tns:eliminarUsuario"/>
+
+  <xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse"/>
+
+  <xs:element name="modificarUsuario" type="tns:modificarUsuario"/>
+
+  <xs:element name="modificarUsuarioResponse" type="tns:modificarUsuarioResponse"/>
+
+  <xs:element name="obtenerListaUsuarios" type="tns:obtenerListaUsuarios"/>
+
+  <xs:element name="obtenerListaUsuariosResponse" type="tns:obtenerListaUsuariosResponse"/>
+
+  <xs:element name="obtenerUsuario" type="tns:obtenerUsuario"/>
+
+  <xs:element name="obtenerUsuarioResponse" type="tns:obtenerUsuarioResponse"/>
+
+  <xs:complexType name="obtenerUsuario">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:usuario" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="usuario">
+    <xs:sequence>
+      <xs:element name="contrase&#241;a" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombreCompleto" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearUsuario">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:usuario" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modificarUsuario">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:usuario" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modificarUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:usuario" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerListaUsuarios">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerListaUsuariosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarUsuario">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:usuario" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

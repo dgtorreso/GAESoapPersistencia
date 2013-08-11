@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://notas.servicios.persistencia.dv.com/" xmlns:tns="http://notas.servicios.persistencia.dv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="crearNotas" type="tns:crearNotas"/>
+
+  <xs:element name="crearNotasResponse" type="tns:crearNotasResponse"/>
+
+  <xs:element name="obtenerNotas" type="tns:obtenerNotas"/>
+
+  <xs:element name="obtenerNotasResponse" type="tns:obtenerNotasResponse"/>
+
+  <xs:complexType name="obtenerNotas">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerNotasResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:notas" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="notas">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="crearNotas">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="crearNotasResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:notas" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
