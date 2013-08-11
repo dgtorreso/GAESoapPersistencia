@@ -1,23 +1,27 @@
 package com.dv.persistencia.entidades;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
-
 import com.google.appengine.api.datastore.Key;
 
+@PersistenceCapable
 public class Usuario {
 	
 	//Campos
 	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Key key;
+	
 	@Persistent
-	protected String nombre;
+	private String nombre;
+	
 	@Persistent
-	protected String nombreCompleto;
+	private String nombreCompleto;
+	
 	@Persistent
-	protected String contraseña;
+	private String contraseña;
 	
 	//Getters y Setters
 	public String getNombre() {
