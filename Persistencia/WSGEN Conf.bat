@@ -10,7 +10,7 @@ echo.
 echo.
 
 
-set rutaproyecto="C:\Users\Familia\workspace\Persistencia"
+set rutaproyecto="C:\Users\Familia\Documents\GitHub\GAESoapPersistencia\Persistencia"
 ::variables que especifican los lugares que necesita acceder el wsgen
 
 ::rute de wsgen, especifique la ruta dentro del jdk
@@ -24,5 +24,5 @@ cd %rutaproyecto%
 
 ::Esta linea debe reproducirse para cada uno de los servicios, al final se coloca el el nombre completo de la clase.
 %rutawsgen% -cp %clases% -wsdl -keep -r %war% -d %clases% -s %codigo%  com.dv.persistencia.servicios.usuarios.UsuarioServicio
-::%rutawsgen% -cp %clases% -wsdl -keep -r %war% -d %clases% -s %codigo%  com.dv.persistencia.servicios.notas.NotasServicio
+%rutawsgen% -cp %clases% -wsdl -keep -r %war% -d %clases% -s %codigo%  com.dv.persistencia.servicios.notas.NotasServicio
 pause

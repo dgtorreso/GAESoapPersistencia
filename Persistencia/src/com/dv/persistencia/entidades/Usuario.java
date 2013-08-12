@@ -1,27 +1,17 @@
 package com.dv.persistencia.entidades;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 import com.google.appengine.api.datastore.Key;
 
-@PersistenceCapable
-public class Usuario {
+public class Usuario{
 	
 	//Campos
-	@PrimaryKey
-    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    private Key key;
+    
 	
-	@Persistent
-	private String nombre;
+	protected String nombre;
 	
-	@Persistent
-	private String nombreCompleto;
+	protected String nombreCompleto;
 	
-	@Persistent
-	private String contraseña;
+	protected String contraseña;
 	
 	//Getters y Setters
 	public String getNombre() {
@@ -41,7 +31,7 @@ public class Usuario {
 	}
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
-	}	
+	}
 
 	
 }

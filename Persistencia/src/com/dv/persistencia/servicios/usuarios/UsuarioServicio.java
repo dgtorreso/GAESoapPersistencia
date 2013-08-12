@@ -12,12 +12,8 @@ import com.dv.persistencia.entidades.Usuario;
 public class UsuarioServicio {
 	
 	@WebMethod
-	public Usuario crearUsuario(String Nombre, String nombreCompleto, String Pass)
-	{
-		Usuario us = new Usuario();
-		us.setNombre(Nombre);
-		us.setContraseña(Pass);
-		us.setNombreCompleto(nombreCompleto);
+	public Usuario crearUsuario(Usuario us)
+	{		
 		return UsuarioDatos.crearUsuario(us);
 	}
 	

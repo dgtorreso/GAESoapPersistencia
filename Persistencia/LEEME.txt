@@ -1,0 +1,51 @@
+Persistencia de datos y comunicación con soap utilizando Google App Engine
+
+Introducción:
+	Este es un experimento para implementar tanto soap como persistencia de datos en GAE, 
+	como son tan pocas las librerías de JEE que ofrece, es un gran problema desarrollar
+	sin acudir a tecnologías de terceros, así que hay que tomar en cuenta que hay mejores
+	caminos. También hay que tener presente que el autor es muy nuevo utilizando Java y
+	dentro del mundo de las aplicaciones distribuidas.
+
+Descripción del Proyecto:
+	La aplicación se compone de una capa de entidades que describe los objetos con los que}
+	se va a interactuar, sus campos, getter y setter. Le sigue la capa de datos que contiene
+	una definición de los la clase de datos que va a persistir, esta clase utiliza una 
+	implementación del framework DataNucleus con JDO, realizada por google para el GAE.
+	Finalmente la capa de servicio donde se definen los métodos que utilizará soap para 
+	la comunicación.
+	
+Tecnologías Utilizadas:
+	
+	WSGEN y Soap:
+		para crear los servicios GAE limita la utilización de soap a los archivos generados
+		per esta herramienta del JDK. En la opinión del autor esta forma es "UN ASCO", pues
+		no acepta bibliotecas externas durante la generación de archivos lo que lleva a no
+		poder utilizar por ejemplo las anotaciones de JDO en las clases que compartan los
+		servicios, además no se pueden usar los tipos de las librerías externas.
+		Drenada la frustración, para la creación de los archivos se utiliza un archivo batch
+		llamado "WSGEN Conf.bat" con el cual se crean las clases para la comunicación con soap.
+	
+	DataNucleus y JDO:
+		esta implementación se utiliza para la persistencia de datos, es muy fácil de utilizar,
+		las clases que se utilizan para la persistencia contienen también los métodos para
+		persistir.
+
+Convenciones:
+	Entidades:
+		Las entidades están dentro del paquete de entidades, solo pueden contener tipos que estén
+		dentro del JDK para que el WSGEN pueda crear los servicios.
+	Datos: 
+		Estas clases describen la estructura de las entidades que se guardaran en la base de datos,
+	 	también contienen los métodos utilizados para guardarse a sí mismas, estos métodos deben ser
+	 	estáticos. Además existe una interfaz que todas deben implementar métodos para crear una clase de
+	 	datos con lo que se recibe de las entidades y para devolver entidades con los datos obtenidos del
+	 	la base de datos pues para la comunicación se utiliza la capa de entidad.
+	Servicios:
+		La capa de servicios contiene dos clases por servicio, una es el servicio en sí, con las anotaciones
+		necesarias, la otra es una clase que hereda de com.dv.servicios.ServiciosServlet que permite crear
+		un servicio soap por medio de un Servlet con solo introducir el nombre de la clase del servicio y 
+		generar las clases auxiliares con WSGEN. cada servicio debe ir en un paquete diferente dentro del
+		paquete de servicios.
+		
+Fin...

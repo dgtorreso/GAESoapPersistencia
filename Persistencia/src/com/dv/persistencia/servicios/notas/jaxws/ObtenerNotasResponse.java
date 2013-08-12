@@ -1,7 +1,7 @@
 
 package com.dv.persistencia.servicios.notas.jaxws;
 
-import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -14,14 +14,14 @@ import javax.xml.bind.annotation.XmlType;
 public class ObtenerNotasResponse {
 
     @XmlElement(name = "return", namespace = "")
-    private ArrayList<com.dv.persistencia.entidades.Notas> _return;
+    private List<com.dv.persistencia.entidades.Notas> _return;
 
     /**
      * 
      * @return
-     *     returns ArrayList<Notas>
+     *     returns List<Notas>
      */
-    public ArrayList<com.dv.persistencia.entidades.Notas> getReturn() {
+    public List<com.dv.persistencia.entidades.Notas> getReturn() {
         return this._return;
     }
 
@@ -30,7 +30,7 @@ public class ObtenerNotasResponse {
      * @param _return
      *     the value for the _return property
      */
-    public void setReturn(ArrayList<com.dv.persistencia.entidades.Notas> _return) {
+    public void setReturn(List<com.dv.persistencia.entidades.Notas> _return) {
         this._return = _return;
     }
 
